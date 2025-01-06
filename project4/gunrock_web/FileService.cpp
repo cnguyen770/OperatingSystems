@@ -12,7 +12,7 @@
 
 using namespace std;
 
-FileService::FileService(string basedir) : HttpService("/") {
+FileService::FileService(std::string basedir) : HttpService("/") {
   while (endswith(basedir, "/")) {
     basedir = basedir.substr(0, basedir.length() - 1);
   }
@@ -21,7 +21,6 @@ FileService::FileService(string basedir) : HttpService("/") {
     cout << "invalid basedir" << endl;
     exit(1);
   }
-  
   this->m_basedir = basedir;
 }
 

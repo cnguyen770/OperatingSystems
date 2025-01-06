@@ -26,7 +26,7 @@ using namespace std;
 int PORT = 8080;
 int THREAD_POOL_SIZE = 1;
 int BUFFER_SIZE = 1;
-string BASEDIR = "ds3";
+string BASEDIR = "static";
 string SCHEDALG = "FIFO";
 string LOGFILE = "/dev/null";
 string DISKFILE = "disk.img";
@@ -158,7 +158,7 @@ int main(int argc, char *argv[]) {
 
   set_log_file(LOGFILE);
 
-  cout << "Lisening on port " << PORT << endl;
+  cout << "Listening on port " << PORT << endl;
   
   sync_print("init", "");
   MyServerSocket *server = new MyServerSocket(PORT);
