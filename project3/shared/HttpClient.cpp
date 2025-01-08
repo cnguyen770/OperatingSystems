@@ -1,6 +1,5 @@
 #include "HttpClient.h"
 #include "HTTPClientResponse.h"
-#include "MySslSocket.h"
 #include "Base64.h"
 
 #include <sstream>
