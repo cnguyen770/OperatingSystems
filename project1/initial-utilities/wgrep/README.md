@@ -1,6 +1,6 @@
 
 In this directory, you should write the program `wgrep.cpp` and compile it into
-the binary `wgrep` (e.g., `g++ -o wgrep wgrep.cpp -Wall -Werror`).
+the binary `wgrep` (e.g., `g++ -g -o wgrep wgrep.cpp -Wall -Werror`).
 
 After doing so, you can run the tests from this directory by running the
 `test-wgrep.sh` script. If all goes well, you will see:

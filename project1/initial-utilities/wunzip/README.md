@@ -1,6 +1,6 @@
 
 In this directory, you should write the program `wunzip.cpp` and compile it into
-the binary `wunzip` (e.g., `g++ -o wunzip wunzip.cpp -Wall -Werror`).
+the binary `wunzip` (e.g., `g++ -g -o wunzip wunzip.cpp -Wall -Werror`).
 
 After doing so, you can run the tests from this directory by running the
 `test-wunzip.sh` script. If all goes well, you will see:

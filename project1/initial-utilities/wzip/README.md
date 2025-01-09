@@ -1,6 +1,6 @@
 
 In this directory, you should write the program `wzip.cpp` and compile it into
-the binary `wzip` (e.g., `g++ -o wzip wzip.c -Wall -Werror`).
+the binary `wzip` (e.g., `g++ -g -o wzip wzip.c -Wall -Werror`).
 
 After doing so, you can run the tests from this directory by running the
 `test-wzip.sh` script. If all goes well, you will see:

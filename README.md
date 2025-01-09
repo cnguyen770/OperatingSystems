@@ -49,19 +49,22 @@ within the editor.
 ## Debugging
 To debug a program, you run it as follows:
 
-_First compile it without address sanitizer_
+_For Projects 1 and 2 compile with the `-g` flag_
+* ```g++ -g -o wcat -Wall -Werror wcat.cpp
+
+_For Projects 3 and 4 compile it without address sanitizer_
 * ```make clean; DEBUGGER=true make```
 
-_In the Visual Studio Code terminal_
-* [Linux, Windows, Mac (x86) host] ```gdbserver localhost:1234 ./gunrock_web```
-* [Mac (Apple Silicon) host] ```ROSETTA_DEBUGSERVER_PORT=1234 ./gunrock_web```
+_In the Visual Studio Code terminal run the program you want to debug_
+* [Linux, Windows, Mac (x86) host] ```gdbserver localhost:1234 ./wcat```
+* [Mac (Apple Silicon) host] ```ROSETTA_DEBUGSERVER_PORT=1234 ./wcat```
 
 _Then in Visual Studio Code editor_
+* Select the main file for the program you want to debug (e.g., `wcat.cpp`) in the Editor. The debugger uses this file to find the program you want to debug.
 * Select "Run and Debug" on the left hand control pane
-* Select the "GDB Gunrock Web" configuration and hit the play button
+* Select the "GDB Debug Current File" configuration and hit the play button
 
-This will connect your Visual Studio Code debugger to your program running in your
-container.
+This will connect your Visual Studio Code debugger to your program running in your container.
 
 ## What if Docker or the debugger doesn't work?
 
@@ -72,7 +75,7 @@ had success with it. To use it you:
 * Open your project and _do not_ open in a dev container.
 * On the terminal, compile with `make clean; DEBUGGER=true make`
 * Make sure that the utility you want to debug is visible in your editor. For example, if you're debugging `ds3cat` then `ds3cat.cpp` should be open in your editor.
-* Go to the VSCode debugger panel and select the "Mac Debug Current File" option.
+* Go to the VSCode debugger panel and select the "Mac Native Debug Current File" option.
 
 Just to reiterate, we can't support this configuration yet, but if you're stuck you can try it as an option.
 

@@ -57,7 +57,7 @@ To create the **wcat** binary, you'll be creating a single source file,
 of **cat**. To compile this program, you will do the following:
 
 ```
-prompt> g++ -o wcat wcat.cpp -Wall -Werror
+prompt> g++ -g -o wcat wcat.cpp -Wall -Werror
 prompt> 
 ```
 
