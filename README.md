@@ -50,7 +50,7 @@ within the editor.
 To debug a program, you run it as follows:
 
 _For Projects 1 and 2 compile with the `-g` flag_
-* ```g++ -g -o wcat -Wall -Werror wcat.cpp
+* ```g++ -g -o wcat -Wall -Werror wcat.cpp```
 
 _For Projects 3 and 4 compile it without address sanitizer_
 * ```make clean; DEBUGGER=true make```
