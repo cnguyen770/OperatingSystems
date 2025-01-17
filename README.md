@@ -76,13 +76,16 @@ had success with it. To use it you:
 * On the terminal, compile with `make clean; DEBUGGER=true make`
 * Make sure that the utility you want to debug is visible in your editor. For example, if you're debugging `ds3cat` then `ds3cat.cpp` should be open in your editor.
 * Go to the VSCode debugger panel and select the "Mac Native Debug Current File" option.
-
-Just to reiterate, we can't support this configuration yet, but if you're stuck you can try it as an option.
+* **Important** If you're seeing inconsistencies between your Mac
+  and the autograder, try running your code on a CSIF machine, which
+  you can access using SSH. The CSIF machine are running the same
+  version of Linux that the autograder uses, so should provide a
+  good way to run a final check on your code if you're facing issues.
 
 ## Hints
 Here are a few hints to help, but Visual Studio Code is widely used software so checking
 online for help when you get stuck will be useful:
 * Select "Auto Save" in Visual Studio Code to ensure that it saves your files as you edit.
 * In our examples we use port `1234` for the debugger, but you can change this port if needed, just make sure that you update your `launch.json` file to match.
-* To get started with a project, you will typically clone our [ECS 150 repo on GitHub](https://github.com/kingst/ecs150-projects) using Visual Studio Code "Clone git repository" option and Visual Studio Code will set up a Dev Container for you based on the confiugrations we included in that repo.
+* To get started with a project, you will typically clone our [ECS 150 repo](https://ecs150-projects.io/git/ecs150-projects.git) using Visual Studio Code "Clone git repository" option and Visual Studio Code will set up a Dev Container for you based on the confiugrations we included in that repo.
 * If we push an update in the middle of a project, you can use `git pull` in your host terminal to fetch the latest updates. There is probably a way to do this in Visual Studio Code as well.
