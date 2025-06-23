@@ -23,6 +23,19 @@ int main(int argc, char *argv[]) {
   int parentInode = stoi(argv[2]);
   string directory = string(argv[3]);
   */
+
+  string diskImage = argv[1];
+  int parentInode = stoi(argv[2]);
+  string directoryName = argv[3];
+
+  Disk *disk = new Disk(diskImage, UFS_BLOCK_SIZE);
+  LocalFileSystem *fs = new LocalFileSystem(disk);
+  
+  int result = fs->create(parentInode, UFS_DIRECTORY, directoryName);
+  if (result == -1) {
+    cerr << "Error creating directory" << endl;
+    return 1;
+  }
   
   return 0;
 }

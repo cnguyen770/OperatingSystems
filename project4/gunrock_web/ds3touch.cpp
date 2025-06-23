@@ -23,6 +23,19 @@ int main(int argc, char *argv[]) {
   int parentInode = stoi(argv[2]);
   string fileName = string(argv[3]);
   */
+
+  string diskImage = argv[1];
+  int parentInode = stoi(argv[2]);
+  string fileName = argv[3];
+
+  Disk *disk = new Disk(diskImage, UFS_BLOCK_SIZE);
+  LocalFileSystem *fs = new LocalFileSystem(disk);
+  
+  int result = fs->create(parentInode, UFS_REGULAR_FILE, fileName);
+  if (result == -1) {
+    cerr << "Error creating file" << endl;
+    return 1;
+  }
   
   return 0;
 }

@@ -11,6 +11,9 @@
 #include "Disk.h"
 #include "ufs.h"
 
+#include <fstream>
+#include <sstream>
+
 using namespace std;
 
 int main(int argc, char *argv[]) {
@@ -28,6 +31,28 @@ int main(int argc, char *argv[]) {
   string srcFile = string(argv[2]);
   int dstInode = stoi(argv[3]);
   */
+
+  string diskImage = argv[1];
+  string srcFile = argv[2];
+  int dstInode = stoi(argv[3]);
+
+  ifstream infile(srcFile, ios::binary);
+  if (!infile) {
+    cerr << "Could not open source file" << endl;
+    return 1;
+  }
+  stringstream buffer;
+  buffer << infile.rdbuf();
+  string fileContent = buffer.str();
+  
+  Disk *disk = new Disk(diskImage, UFS_BLOCK_SIZE);
+  LocalFileSystem *fs = new LocalFileSystem(disk);
+  
+  int bytesWritten = fs->write(dstInode, fileContent.data(), fileContent.size());
+  if (bytesWritten < 0 /* || bytesWritten != static_cast<int>(fileContent.size()) */) {
+    cerr << "Could not write to dst_file" << endl;
+    return 1;
+  }
   
   return 0;
 }

@@ -24,5 +24,18 @@ int main(int argc, char *argv[]) {
   string entryName = string(argv[3]);
   */
 
+  string diskImage = argv[1];
+  int parentInode = stoi(argv[2]);
+  string entryName = argv[3];
+
+  Disk *disk = new Disk(diskImage, UFS_BLOCK_SIZE);
+  LocalFileSystem *fs = new LocalFileSystem(disk);
+  
+  int result = fs->unlink(parentInode, entryName);
+  if (result != 0) {
+    cerr << "Error removing entry" << endl;
+    return 1;
+  }
+
   return 0;
 }

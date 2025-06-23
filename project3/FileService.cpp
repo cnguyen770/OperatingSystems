@@ -36,6 +36,14 @@ bool FileService::endswith(string str, string suffix) {
 void FileService::get(HTTPRequest *request, HTTPResponse *response) {
   string path = this->m_basedir + request->getPath();
   string fileContents = this->readFile(path);
+
+  if (request->getPath().find("..") != string::npos) {
+    cerr << "403 Forbidden: Path traversal attempt detected: " 
+         << request->getPath() << endl;
+    response->setStatus(403);
+    return;
+  }
+
   if (fileContents.size() == 0) {
     response->setStatus(403);
     return;
